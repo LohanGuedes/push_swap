@@ -5,7 +5,7 @@
 */
 void	push(t_stack *stack, int num)
 {
-	if(stack->head == stack->size-1)
+	if(stack->head == stack->size)
 	{
 		write(2, STACK_OVERFLOW, 19);
 		exit(1);

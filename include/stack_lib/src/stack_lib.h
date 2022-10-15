@@ -16,6 +16,7 @@ typedef struct s_stack {
 
 
 /* Basic operations */
+t_stack	s_gen(int size);
 void	push(t_stack *stack, int num);
 void	pop(t_stack *stack);
 

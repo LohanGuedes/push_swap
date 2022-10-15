@@ -1,4 +1,4 @@
-SRCS    += $(addprefix src/, s_basic.c s_push.c s_rev_rotate.c s_rotate.c s_swap.c)
+SRCS    += $(addprefix src/, s_basic.c s_push.c s_rev_rotate.c s_rotate.c s_swap.c s_gen.c)
 
 OBJS	= ${SRCS:.c=.o}
 
