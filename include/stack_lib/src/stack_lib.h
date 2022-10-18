@@ -9,9 +9,9 @@
 # define STACK_UNDERFLOW "STACK UNDERFLOW!!!\n"
 
 typedef struct s_stack {
-		int	*list;
-		int	head;
-		int	size;
+		int	*list;	// List itself
+		int	head; 	// Current size
+ 		int	size; 	// How much it can hold
 }	t_stack;
 
 
@@ -19,6 +19,10 @@ typedef struct s_stack {
 t_stack	s_gen(int size);
 void	push(t_stack *stack, int num);
 void	pop(t_stack *stack);
+
+/* Push Operations */
+void	pa(t_stack *stack_a, t_stack *stack_b);
+void	pb(t_stack *stack_a, t_stack *stack_b);
 
 /* Swap operations */
 void	swap(int *a, int *b);
