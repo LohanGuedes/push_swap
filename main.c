@@ -13,7 +13,7 @@ int	min_value(t_stack *stack)
 	while(i--)
 		if(stack->list[i] < min)
 			min = stack->list[i];
-	
+
 	return (min);
 }
 
@@ -27,7 +27,7 @@ int	max_value(t_stack *stack)
 	while(i--)
 		if(stack->list[i] > max)
 			max = stack->list[i];
-	
+
 	return (max);
 }
 
@@ -44,7 +44,7 @@ int	add_slack(t_stack *stack)
 		slack = -min;
 	while(i-- && slack)
 		stack->list[i] += slack;
-	
+
 	return (slack);
 }
 
@@ -76,19 +76,19 @@ void	push_all_a(t_stack *stack_a, t_stack *stack_b)
 		pa(stack_a, stack_b);
 }
 
-int	check(t_stack *stack, int current_bit)
+int	valid(t_stack *stack, int current_bit)
 {
 	int i;
-	int bit;
+
 
 	i = stack->size;
-	bit = (((unsigned int)stack->list[i-1]) >> current_bit) & 1;
-	while(i--)
+	while(--i)
 	{
-		if((unsigned int)(stack->list[i] >> current_bit) & 1 != bit)
-			return (0);
+		if((unsigned int)(stack->list[i] >> current_bit) & 1 !=
+			(unsigned int)(stack->list[i-1] >> current_bit) & 1)
+			return (1);
 	}
-	return (1);
+	return (0);
 }
 
 void	sort_big_stack(t_stack *stack_a, t_stack *stack_b)
@@ -104,26 +104,25 @@ void	sort_big_stack(t_stack *stack_a, t_stack *stack_b)
 	slack = add_slack(stack_a);
 	count = 0;
 
-	while(msb_pos--)
+	while(current_bit < msb_pos)
 	{
 		n_operations = 0;
-		if(check(stack_a, current_bit))
+		if(valid(stack_a, current_bit))
 		{
 			while(n_operations < stack_a->size)
 			{
-				if((unsigned int)(stack_a->list[stack_a->head] >> current_bit) & 1)
-					ra(stack_a);
-				else
+				if(((unsigned int)(stack_a->list[stack_a->head] >> current_bit) & 1))
 					pb(stack_a, stack_b);
-				n_operations++; 
+				else
+					ra(stack_a);
+				n_operations++;
 				count++;
 			}
 			push_all_a(stack_a, stack_b);
-		}	
+		}
 		current_bit++;
 	}
 	remove_slack(stack_a, slack);
-	ft_printf("Mov count: %d\n", count);
 }
 
 int	main(int argc, char *argv[])
@@ -134,9 +133,10 @@ int	main(int argc, char *argv[])
 	stack_a = s_build_and_populate(argc, argv);
 	stack_b = s_gen(argc - 1);
 
-
-
 	sort_big_stack(&stack_a, &stack_b);
+	// for(int i = 0; i < stack_a.size; i++)
+	//   	ft_printf("%i\n", stack_a.list[i]);
+
 }
 
 t_stack s_build_and_populate(int argc, char *argv[])
