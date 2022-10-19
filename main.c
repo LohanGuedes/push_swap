@@ -76,24 +76,24 @@ void	push_all_a(t_stack *stack_a, t_stack *stack_b)
 		pa(stack_a, stack_b);
 }
 
-int	valid(t_stack *stack, int current_bit)
-{
-	int i;
+// int	valid(t_stack *stack, int current_bit)
+// {
+// 	int i;
 
 
-	i = stack->size;
-	while(--i)
-	{
-		if((unsigned int)(stack->list[i] >> current_bit) & 1 !=
-			(unsigned int)(stack->list[i-1] >> current_bit) & 1)
-			return (1);
-	}
-	return (0);
-}
+// 	i = stack->size;
+// 	while(--i)
+// 	{
+// 		if((unsigned int)(stack->list[i] >> current_bit) & 1 !=
+// 			(unsigned int)(stack->list[i-1] >> current_bit) & 1)
+// 			return (1);
+// 	}
+// 	return (0);
+// }
 
 void	sort_big_stack(t_stack *stack_a, t_stack *stack_b)
 {
-	int count;
+	unsigned int temp;
 	int	msb_pos;
 	int current_bit;
 	int n_operations;
@@ -102,24 +102,20 @@ void	sort_big_stack(t_stack *stack_a, t_stack *stack_b)
 	current_bit = 0;
 	msb_pos = find_msb_pos(max_value(stack_a)) + 1;
 	slack = add_slack(stack_a);
-	count = 0;
 
-	while(current_bit < msb_pos)
+	while (current_bit < msb_pos)
 	{
 		n_operations = 0;
-		if(valid(stack_a, current_bit))
+		while (n_operations < stack_a->size)
 		{
-			while(n_operations < stack_a->size)
-			{
-				if(((unsigned int)(stack_a->list[stack_a->head] >> current_bit) & 1))
-					pb(stack_a, stack_b);
-				else
-					ra(stack_a);
-				n_operations++;
-				count++;
-			}
-			push_all_a(stack_a, stack_b);
+			temp = stack_a->list[stack_a->head];
+			if ((temp >> current_bit) & 1)
+				pb(stack_a, stack_b);
+			else
+				ra(stack_a);
+			n_operations++;
 		}
+		push_all_a(stack_a, stack_b);
 		current_bit++;
 	}
 	remove_slack(stack_a, slack);
@@ -135,7 +131,7 @@ int	main(int argc, char *argv[])
 
 	sort_big_stack(&stack_a, &stack_b);
 	// for(int i = 0; i < stack_a.size; i++)
-	//   	ft_printf("%i\n", stack_a.list[i]);
+	//    	ft_printf("%i\n", stack_a.list[i]);
 
 }
 
@@ -146,8 +142,10 @@ t_stack s_build_and_populate(int argc, char *argv[])
 
 	stack = s_gen(argc - 1);
 
-	i = 1;
-	while(argv[i])
-		push(&stack, ft_atoi(argv[i++]));
+	i = stack.size;
+	while(i--)
+		stack.list[i] = ft_atoi(argv[i - argc]);
+
+	stack.head = stack.size -1;
 	return (stack);
 }
