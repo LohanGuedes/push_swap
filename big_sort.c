@@ -6,13 +6,13 @@
 /*   By: lguedes <lguedes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 18:43:45 by lguedes           #+#    #+#             */
-/*   Updated: 2022/10/20 19:28:49 by lguedes          ###   ########.fr       */
+/*   Updated: 2022/10/20 19:51:05 by lguedes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "include/push_swap.h"
 
-int	find_msb_pos(unsigned x)
+int	find_msb_pos(unsigned int x)
 {
 	int	i;
 
@@ -22,7 +22,7 @@ int	find_msb_pos(unsigned x)
 		x >>= 1;
 		i++;
 	}
-	return (i-1);
+	return (i - 1);
 }
 
 void	push_all_a(t_stack *stack_a, t_stack *stack_b)
@@ -30,7 +30,6 @@ void	push_all_a(t_stack *stack_a, t_stack *stack_b)
 	while (stack_b->head >= 0)
 		pa(stack_a, stack_b);
 }
-
 
 int	valid(t_stack *stack, int current_bit)
 /*
@@ -43,12 +42,11 @@ int	valid(t_stack *stack, int current_bit)
 	while (--i)
 	{
 		if ((unsigned int)(stack->list[i] >> current_bit) & 1 !=
-			(unsigned int)(stack->list[i-1] >> current_bit) & 1)
+			(unsigned int)(stack->list[i - 1] >> current_bit) & 1)
 			return (1);
 	}
 	return (0);
 }
-
 
 void	sort_big_stack(t_stack *stack_a, t_stack *stack_b)
 /*

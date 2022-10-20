@@ -6,7 +6,7 @@
 /*   By: lguedes <lguedes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 18:44:29 by lguedes           #+#    #+#             */
-/*   Updated: 2022/10/20 19:46:20 by lguedes          ###   ########.fr       */
+/*   Updated: 2022/10/20 19:49:34 by lguedes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,9 @@ t_stack	s_build_and_populate(int argc, char *argv[])
 	t_stack	stack;
 
 	stack = s_gen(argc - 1);
-
 	i = stack.size;
 	while (i--)
 		stack.list[i] = ft_atoi(argv[argc - i - 1]);
-
 	stack.head = stack.size -1;
 	return (stack);
 }
