@@ -6,7 +6,7 @@
 /*   By: lguedes <lguedes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 18:44:29 by lguedes           #+#    #+#             */
-/*   Updated: 2022/10/20 19:25:38 by lguedes          ###   ########.fr       */
+/*   Updated: 2022/10/20 19:46:20 by lguedes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,5 @@ int	main(int argc, char *argv[])
 	stack_b = s_gen(argc - 1);
 	if (argc > 5)
 		sort_big_stack(&stack_a, &stack_b);
-	
-	
 	return (0);
 }
