@@ -1,42 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   slack.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lguedes <lguedes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/19 18:44:29 by lguedes           #+#    #+#             */
-/*   Updated: 2022/10/20 19:25:38 by lguedes          ###   ########.fr       */
+/*   Created: 2022/10/20 19:22:07 by lguedes           #+#    #+#             */
+/*   Updated: 2022/10/20 19:23:27 by lguedes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./include/push_swap.h"
 
-t_stack	s_build_and_populate(int argc, char *argv[])
+unsigned int	add_slack(t_stack *stack)
 {
-	int		i;
-	t_stack	stack;
+	unsigned int	slack;
+	int				min;
+	int				i;
 
-	stack = s_gen(argc - 1);
-
-	i = stack.size;
-	while (i--)
-		stack.list[i] = ft_atoi(argv[argc - i - 1]);
-
-	stack.head = stack.size -1;
-	return (stack);
+	i = stack->size;
+	slack = 0;
+	min = min_value(stack);
+	if (min < 0)
+		slack = -min;
+	while (i-- && slack)
+		stack->list[i] += slack;
+	return (slack);
 }
 
-int	main(int argc, char *argv[])
+void	remove_slack(t_stack *stack, unsigned int slack)
 {
-	t_stack	stack_a;
-	t_stack	stack_b;
+	int	i;
 
-	stack_a = s_build_and_populate(argc, argv);
-	stack_b = s_gen(argc - 1);
-	if (argc > 5)
-		sort_big_stack(&stack_a, &stack_b);
-	
-	
-	return (0);
+	i = stack->size;
+	while (i-- && slack)
+		stack->list[i] -= slack;
 }

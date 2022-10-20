@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   s_rev_rotate.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lguedes <lguedes@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/10/20 19:38:25 by lguedes           #+#    #+#             */
+/*   Updated: 2022/10/20 19:42:26 by lguedes          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "stack_lib.h"
 
 /*
@@ -5,14 +17,14 @@
 */
 void	rra(t_stack *stack_a)
 {
-	int last;
-	int i;
+	int	last;
+	int	i;
 
-	i = stack_a->head+1;
+	i = stack_a->head + 1;
 	last = stack_a->list[stack_a->head];
-	while(i)
+	while (i)
 	{
-		swap(&stack_a->list[i], &stack_a->list[i-1]);
+		swap(&stack_a->list[i], &stack_a->list[i - 1]);
 		i--;
 	}
 	stack_a->list[0] = last;
@@ -20,14 +32,14 @@ void	rra(t_stack *stack_a)
 
 void	rrb(t_stack *stack_b)
 {
-	int last;
-	int i;
+	int	last;
+	int	i;
 
-	i = stack_b->head+1;
+	i = stack_b->head + 1;
 	last = stack_b->list[stack_b->head];
-	while(i)
+	while (i)
 	{
-		swap(&stack_b->list[i], &stack_b->list[i-1]);
+		swap(&stack_b->list[i], &stack_b->list[i - 1]);
 		i--;
 	}
 	stack_b->list[0] = last;

@@ -1,42 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   min_max.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lguedes <lguedes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/19 18:44:29 by lguedes           #+#    #+#             */
-/*   Updated: 2022/10/20 19:25:38 by lguedes          ###   ########.fr       */
+/*   Created: 2022/10/19 18:47:32 by lguedes           #+#    #+#             */
+/*   Updated: 2022/10/19 18:47:51 by lguedes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./include/push_swap.h"
 
-t_stack	s_build_and_populate(int argc, char *argv[])
+int	min_value(t_stack *stack)
 {
-	int		i;
-	t_stack	stack;
+	int	i;
+	int	min;
 
-	stack = s_gen(argc - 1);
-
-	i = stack.size;
+	i = stack->head;
+	min = stack->list[i];
 	while (i--)
-		stack.list[i] = ft_atoi(argv[argc - i - 1]);
-
-	stack.head = stack.size -1;
-	return (stack);
+		if (stack->list[i] < min)
+			min = stack->list[i];
+	return (min);
 }
 
-int	main(int argc, char *argv[])
+int	max_value(t_stack *stack)
 {
-	t_stack	stack_a;
-	t_stack	stack_b;
+	int	i;
+	int	max;
 
-	stack_a = s_build_and_populate(argc, argv);
-	stack_b = s_gen(argc - 1);
-	if (argc > 5)
-		sort_big_stack(&stack_a, &stack_b);
-	
-	
-	return (0);
+	i = stack->head;
+	max = stack->list[i];
+	while (i--)
+		if (stack->list[i] > max)
+			max = stack->list[i];
+	return (max);
 }
