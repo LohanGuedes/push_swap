@@ -41,8 +41,8 @@ int	valid(t_stack *stack, int current_bit)
 	i = stack->size;
 	while (--i)
 	{
-		if ((unsigned int)(stack->list[i] >> current_bit) & 1 !=
-			(unsigned int)(stack->list[i - 1] >> current_bit) & 1)
+		if (((unsigned int)(stack->list[i] >> current_bit) & 1) !=
+			((unsigned int)(stack->list[i - 1] >> current_bit) & 1))
 			return (1);
 	}
 	return (0);
