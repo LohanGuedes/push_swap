@@ -18,7 +18,7 @@ STACKLIB_PATH = ./include/stack_lib
 LIBFT = $(LIBFT_PATH)/libft.a
 STACKLIB = $(STACKLIB_PATH)/stack_lib.a
 
-SRCS		+= main.c min_max.c slack.c big_sort.c
+SRCS		+= main.c min_max.c slack.c big_sort.c small3.c
 
 CC =		cc
 CFLAGS =	-Wall -Wextra -Werror

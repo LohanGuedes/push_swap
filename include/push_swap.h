@@ -25,5 +25,6 @@ void			remove_slack(t_stack *stack, unsigned int slack);
 unsigned int	add_slack(t_stack *stack);
 int				min_value(t_stack *stack);
 int				max_value(t_stack *stack);
+void			small3_sort(t_stack *stack_a);
 
 #endif // PUSH_SWAP_H
