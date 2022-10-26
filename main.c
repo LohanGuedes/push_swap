@@ -6,7 +6,7 @@
 /*   By: lguedes <lguedes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 18:44:29 by lguedes           #+#    #+#             */
-/*   Updated: 2022/10/25 22:46:13 by lguedes          ###   ########.fr       */
+/*   Updated: 2022/10/25 23:17:54 by lguedes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,7 @@ t_stack	s_build_and_populate(int argc, char *argv[])
 	while (i--)
 		stack.list[i] = ft_atoi(argv[argc - i - 1]);
 	stack.head = stack.size -1;
+	is_sorted(stack.list, stack.size);
 	has_duplicate(stack.list, stack.size);
 	return (stack);
 }
@@ -89,6 +90,8 @@ int	main(int argc, char *argv[])
 	t_stack	stack_a;
 	t_stack	stack_b;
 
+	if (argc == 1)
+		return (0);
 	stack_a = s_build_and_populate(argc, argv);
 	stack_b = s_gen(argc - 1);
 	if (argc - 1 == 3)

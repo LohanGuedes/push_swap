@@ -6,7 +6,7 @@
 /*   By: lguedes <lguedes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 22:22:17 by lguedes           #+#    #+#             */
-/*   Updated: 2022/10/25 22:46:40 by lguedes          ###   ########.fr       */
+/*   Updated: 2022/10/25 23:17:28 by lguedes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,4 +33,20 @@ int	has_duplicate(int *arr, int size)
 		i++;
 	}
 	return (0);
+}
+
+void	is_sorted(int *arr, int size)
+{
+	int	i;
+
+	i = 0;
+	while (arr[i] > arr[i + 1])
+	{
+		if (i == size - 2)
+		{
+			free(arr);
+			exit(0);
+		}
+		i++;
+	}
 }

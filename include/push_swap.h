@@ -6,7 +6,7 @@
 /*   By: lguedes <lguedes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 18:49:46 by lguedes           #+#    #+#             */
-/*   Updated: 2022/10/25 22:47:25 by lguedes          ###   ########.fr       */
+/*   Updated: 2022/10/25 23:04:20 by lguedes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,6 @@ int				max_value(t_stack *stack);
 void			small3_sort(t_stack *stack_a);
 void			small5_sort(t_stack *stack_a, t_stack *stack_b);
 int				has_duplicate(int *arr, int size);
+void			is_sorted(int *arr, int size);
 
 #endif // PUSH_SWAP_H
