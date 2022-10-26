@@ -6,7 +6,7 @@
 /*   By: lguedes <lguedes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 19:40:29 by lguedes           #+#    #+#             */
-/*   Updated: 2022/10/20 19:45:12 by lguedes          ###   ########.fr       */
+/*   Updated: 2022/10/25 22:21:09 by lguedes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ typedef struct s_stack {
 	int	head;
 	int	size;
 }	t_stack;
+
+void	quit(void);
 
 /* Basic operations */
 t_stack	s_gen(int size);

@@ -6,7 +6,7 @@
 /*   By: lguedes <lguedes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 18:43:45 by lguedes           #+#    #+#             */
-/*   Updated: 2022/10/20 19:51:05 by lguedes          ###   ########.fr       */
+/*   Updated: 2022/10/25 22:44:34 by lguedes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,24 +21,23 @@ void	small3_sort(t_stack *stack_a)
 {
 	int	nums[3];
 
-	nums[0] = stack_a->list[0];
+	nums[0] = stack_a->list[2];
 	nums[1] = stack_a->list[1];
-	nums[2] = stack_a->list[2];
-
+	nums[2] = stack_a->list[0];
 	if (nums[0] > nums[1] && nums[0] < nums[2] && nums[1] < nums[2])
 		sa(stack_a);
-	if (nums[0] > nums[1] && nums[0] > nums[2] && nums[1] > nums[2])
+	else if (nums[0] > nums[1] && nums[0] > nums[2] && nums[1] > nums[2])
 	{
 		sa(stack_a);
 		rra(stack_a);
 	}
-	if (nums[0] > nums[1] && nums[0] > nums[2] && nums[1] < nums[2])
+	else if (nums[0] > nums[1] && nums[0] > nums[2] && nums[1] < nums[2])
 		ra(stack_a);
-	if (nums[0] < nums[1] && nums[0] < nums[2] && nums[1] > nums[2])
+	else if (nums[0] < nums[1] && nums[0] < nums[2] && nums[1] > nums[2])
 	{
 		sa(stack_a);
 		ra(stack_a);
 	}
-	if (nums[0] < nums[1] && nums[0] > nums[2] && nums[1] > nums[2])
+	else if (nums[0] < nums[1] && nums[0] > nums[2] && nums[1] > nums[2])
 		rra(stack_a);
 }

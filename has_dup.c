@@ -1,37 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   has_dup.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lguedes <lguedes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/16 18:50:47 by lguedes           #+#    #+#             */
-/*   Updated: 2022/10/25 22:16:13 by lguedes          ###   ########.fr       */
+/*   Created: 2022/10/25 22:22:17 by lguedes           #+#    #+#             */
+/*   Updated: 2022/10/25 22:46:40 by lguedes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_atoi(const char *str)
+#include "./include/push_swap.h"
+
+int	has_duplicate(int *arr, int size)
 {
-	int	res;
 	int	i;
-	int	sign;
+	int	j;
 
 	i = 0;
-	res = 0;
-	sign = 1;
-	while (str[i] == ' ' || str[i] == '\t' || str[i] == '\n' || str[i] == '\r'
-		|| str[i] == '\v' || str[i] == '\f')
-			i++;
-	if (str[i] == '-' || str[i] == '+')
+	while (i < size)
 	{
-		if (str[i] == '-')
-			sign *= -1;
+		j = i + 1;
+		while (j < size)
+		{
+			if (arr[i] == arr[j])
+			{
+				free(arr);
+				quit();
+			}
+			j++;
+		}
 		i++;
 	}
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		res = res * 10 + str[i] - '0';
-		i++;
-	}
-	return (sign * res);
+	return (0);
 }

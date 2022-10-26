@@ -6,7 +6,7 @@
 /*   By: lguedes <lguedes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 19:37:07 by lguedes           #+#    #+#             */
-/*   Updated: 2022/10/20 19:44:46 by lguedes          ###   ########.fr       */
+/*   Updated: 2022/10/25 22:47:43 by lguedes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,10 @@ void	pop(t_stack *stack)
 	}
 	stack->head--;
 	return ;
+}
+
+void	quit(void)
+{
+	write(2, "Error\n", 6);
+	exit(2);
 }

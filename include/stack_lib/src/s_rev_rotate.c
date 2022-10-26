@@ -6,7 +6,7 @@
 /*   By: lguedes <lguedes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 19:38:25 by lguedes           #+#    #+#             */
-/*   Updated: 2022/10/20 19:42:26 by lguedes          ###   ########.fr       */
+/*   Updated: 2022/10/25 20:36:41 by lguedes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ void	rra(t_stack *stack_a)
 		i--;
 	}
 	stack_a->list[0] = last;
+	write(1, "rra\n", 4);
 }
 
 void	rrb(t_stack *stack_b)

@@ -6,7 +6,7 @@
 /*   By: lguedes <lguedes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 19:39:51 by lguedes           #+#    #+#             */
-/*   Updated: 2022/10/20 19:43:18 by lguedes          ###   ########.fr       */
+/*   Updated: 2022/10/25 21:03:25 by lguedes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void	sa(t_stack *stack_a)
 		return ;
 	swap(&stack_a->list[stack_a->head],
 		&stack_a->list[stack_a->head - 1]);
+	write(1, "sa\n", 3);
 }
 
 void	sb(t_stack *stack_b)
@@ -29,6 +30,7 @@ void	sb(t_stack *stack_b)
 		return ;
 	swap(&stack_b->list[stack_b->head],
 		&stack_b->list[stack_b->head - 1]);
+	write(1, "sb\n", 3);
 }
 
 void	ss(t_stack *stack_a, t_stack *stack_b)
